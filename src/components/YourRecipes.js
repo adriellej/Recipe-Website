@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 
-import EditIcon from './svg/pen_to_square_icon.svg';
-import FileImageIcon from './svg/file_image_icon.svg';
-import CloseIcon from './svg/close_icon.svg';
-
 const YourRecipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [title, setTitle] = useState('');
@@ -82,13 +78,13 @@ const YourRecipes = () => {
                 <button onClick={handleClick} className="add_btn">+</button>
             </div>
 
-            <div className="recipe_card_container">
+            <div className="card_container">
                 {recipes.map(recipe => (
-                    <div className="recipe">
+                    <div className="container">
                         <button onClick={() => handleDelete(recipe.id)} className="delete_btn">x</button>  
-                        <div key={recipe.id} className="your_recipe_card">
-                            <img src={recipe.image} alt="Recipe" className="recipe_image" />
-                            <div className="recipe_details">
+                        <div key={recipe.id} className="card">
+                            <img src={recipe.image} alt="Recipe" className="card_image" />
+                            <div className="card_details">
                                 <div>
                                     <h3>{recipe.title}</h3>
                                     <h4>Ingredients:</h4>
@@ -98,7 +94,8 @@ const YourRecipes = () => {
                                         ))}
                                     </ul>
                                 </div>
-                                <div> 
+                                
+                                <div>
                                     <h4>Procedure:</h4>
                                     <ul>
                                         {recipe.procedure.map((step, index) => (
@@ -106,7 +103,7 @@ const YourRecipes = () => {
                                         ))}
                                     </ul>
                                 </div>                      
-                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}

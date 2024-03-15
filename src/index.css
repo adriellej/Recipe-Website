@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,7 +12,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Poppins;
+  font-family: 'Poppins';
 }
 
 /* Navbar */
@@ -37,6 +44,7 @@ body {
   text-decoration: underline;
 }
 
+/* Main Content */
 main {
   width: 80%;
   margin: 5% auto;
@@ -49,6 +57,7 @@ main {
 
 .recipe_form {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   gap: 10px;
@@ -57,6 +66,10 @@ main {
 .recipe_form input[type="text"] {
   width: 300px;
   padding: 10px;
+}
+
+.recipe_form input[type="file"] {
+  width: 150px;
 }
 
 .add_btn {
@@ -71,8 +84,10 @@ main {
   opacity: 0.7;
 }
 
-.recipe_card_container {
-  margin: 15px;
+
+/* Card */
+.card_container {
+  margin: 35px 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -80,11 +95,13 @@ main {
   width: 100%;
 }
 
-.recipe {
+.container {
   position: relative;
+  margin-top: 15px;
 }
+
 .delete_btn {
-  font-size: 18px;
+  font-size: 14px;
   background: transparent;
   outline: none;
   border: 1px solid grey;
@@ -92,25 +109,50 @@ main {
   text-align: center;
   padding: 5px 10px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
 }
 
-.recipe_image {
+.delete_btn:hover {
+  background: black;
+  color: white;
+  border: none;
+}
+
+.card_image {
   width: 300px;
-  heigth: 65px;
+  height: 200px;
   border-radius: 15px 15px 0 0;
 }
 
-.your_recipe_card {
+.card {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   max-width: 300px;
-  heigth: auto;
+  height: 500px;
   border-radius: 15px;
 }
 
-.recipe_details {
-  padding: 15px;
+.card_details {
+  padding: 0 15px;
+  overflow-y: auto;
+  height: 280px;
+}
+
+.card_details::-webkit-scrollbar {
+  width: 3px; /* Set the width of the scrollbar */
+}
+
+.card_details::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+.card_details::-webkit-scrollbar-thumb {
+  background: #b6b6b6; /* color of the scrollbar */
+}
+
+.card_details::-webkit-scrollbar-thumb:hover {
+  background: #9E9E9E; /* color of the scrollbar on hover */
 }
 
 ul {
@@ -119,4 +161,11 @@ ul {
   line-height: 1.5;
 }
 
+.container .delete_btn {
+    display: none; 
+}
+
+.container:hover .delete_btn {
+    display: block; 
+}
 
